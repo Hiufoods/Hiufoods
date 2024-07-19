@@ -6,13 +6,14 @@
 body {
   font-family: "Poppins", sans-serif;
   color: #0c0c0c;
-  background-color: #ff0;
+  background-color: #ffffff;
   overflow-x: hidden;
+  background-image: url(../images/body-bg.jpg);
   background-size: cover;
 }
 
 .layout_padding {
-  padding: 20px 0;
+  padding: 90px 0;
 }
 
 .layout_padding2 {
@@ -279,7 +280,7 @@ a:focus {
 }
 
 .slider_section .detail-box {
-  color: #000000;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -292,7 +293,7 @@ a:focus {
 }
 
 .slider_section .detail-box h1 span {
-  color: #000000;
+  color: #4855fe;
 }
 
 .slider_section .find_container .form-row {
@@ -415,8 +416,8 @@ a:focus {
 
 .slider_section .slider_container .slick-prev:hover,
 .slider_section .slider_container .slick-next:hover {
-  background-color: #000000;
-  color: #ffff00;
+  background-color: #4855fe;
+  color: #ffffff;
 }
 
 .slider_section .slider_container .slick-prev {
@@ -475,10 +476,10 @@ a:focus {
   width: 45px;
   height: 45px;
   line-height: 45px;
-  background-color: #495057;
+  background-color: #4855fe;
   border-radius: 100%;
   font-size: 12px;
-  color: #ffff00;
+  color: #ffffff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -680,10 +681,10 @@ a:focus {
   width: 45px;
   height: 45px;
   line-height: 45px;
-  background-color: #00000;
+  background-color: #ffe537;
   border-radius: 100%;
   font-size: 12px;
-  color: #ffff00;
+  color: #ffffff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   opacity: 1;
@@ -697,7 +698,7 @@ a:focus {
 }
 
 .footer_container {
-  background-color: #000;
+  background-image: url(../images/footer-bg.png);
   background-size: 100%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -745,11 +746,11 @@ a:focus {
 .info_section .social_box a {
   margin: 0 20px;
   font-size: 18px;
-  color: #ff0;
+  color: #ffffff;
 }
 
 .info_section .social_box a:hover {
-  color: #000;
+  color: #ffe537;
 }
 
 .info_section .info_links {
@@ -773,7 +774,7 @@ a:focus {
 }
 
 .info_section .info_links ul li a {
-  color: #ff0;
+  color: #ffffff;
 }
 
 .info_section .info_links ul li a:hover {
@@ -784,7 +785,7 @@ a:focus {
 .footer_section {
   position: relative;
   text-align: center;
-  background-color: #000;
+  background-color: #070e6a;
 }
 
 .footer_section p {

@@ -1,6 +1,6 @@
-$white: #ff0;
+$white: #ffffff;
 $black: #000000;
-$primary1: #000;
+$primary1: #4855fe;
 $primary2: #ffe537;
 $textCol: #999;
 
@@ -44,8 +44,9 @@ $textCol: #999;
 body {
   @include main-font;
   color: #0c0c0c;
-  background-color: #000;
+  background-color: #ffffff;
   overflow-x: hidden;
+  background-image: url(../images/body-bg.jpg);
   background-size: cover;
 }
 
@@ -130,7 +131,7 @@ a:focus {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color:#000;
+  background-image: url(../images/hero-bg.jpg);
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -158,7 +159,7 @@ a:focus {
   span {
     font-size: 28px;
     font-weight: bold;
-    color: #ff0;
+    color: $white;
   }
 }
 
@@ -221,7 +222,8 @@ a:focus {
   z-index: 3;
   top: 0;
   left: 0;
-  background-color: #000;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba($color: $primary1, $alpha: 0.95);
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -237,7 +239,7 @@ a:focus {
   padding: 0px;
   text-decoration: none;
   font-size: 22px;
-  color: #ff0;
+  color: $white;
   display: block;
   transition: 0.3s;
   margin-bottom: 15px;
@@ -398,10 +400,10 @@ a:focus {
       width: 45px;
       height: 45px;
       line-height: 45px;
-      background-color: #000;
+      background-color: $primary2;
       border-radius: 100%;
       font-size: 12px;
-      color: #ff0;
+      color: $black;
       transition: all 0.3s;
       border: none;
       outline: none;
@@ -410,8 +412,8 @@ a:focus {
       margin: 0;
 
       &:hover {
-        background-color: #030303;
-        color: #fff;
+        background-color: $primary1;
+        color: $white;
       }
     }
 
@@ -467,15 +469,15 @@ h4{
         width: 45px;
         height: 45px;
         line-height: 45px;
-        background-color: #000;
+        background-color: $primary1;
         border-radius: 100%;
         font-size: 12px;
-        color: #ff0;
+        color: $white;
         transition: all 0.3s;
 
         &:hover {
-          background-color: #000;
-          color: #fff;
+          background-color: $primary2;
+          color: $black;
         }
       }
     }
@@ -567,14 +569,14 @@ h4{
       width: 45px;
       height: 45px;
       line-height: 45px;
-      background-color: #000;
+      background-color: $primary1;
       border-radius: 100%;
       font-size: 12px;
-      color: #ff0;
+      color: $white;
       transition: all 0.3s;
 
       &:hover {
-        background-color: #030303;
+        background-color: $primary2;
         color: $black;
       }
     }
@@ -608,10 +610,10 @@ h4{
         width: 45px;
         height: 45px;
         line-height: 45px;
-        background-color: #000;
+        background-color: $primary1;
         border-radius: 100%;
         font-size: 12px;
-        color: #ff0;
+        color: $white;
         transition: all 0.3s;
 
         &:hover {
@@ -647,7 +649,7 @@ h4{
 
     i.fa-quote-left {
       font-size: 24px;
-      color: #000;
+      color: $primary1;
     }
 
 
@@ -682,15 +684,15 @@ h4{
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: top;
-  padding-top: -47px;
-  margin-top: 50px;
+  padding-top: 245px;
+  margin-top: -175px;
 }
 
 // info section
 .info_section {
   color: $white;
   padding: 45px 0;
-  background-color: #000;
+  background-color: #070e6a;
 
   .contact_box {
     display: flex;
@@ -701,10 +703,10 @@ h4{
     a {
       margin: 0 10px;
       font-size: 24px;
-      color: #ff0;
+      color: $white;
 
       &:hover {
-        color: #fff;
+        color: $primary2;
       }
     }
   }
@@ -716,10 +718,10 @@ h4{
     a {
       margin: 0 20px;
       font-size: 18px;
-      color: #ff0;
+      color: $white;
 
       &:hover {
-        color: #fff;
+        color: $primary2;
       }
     }
   }
