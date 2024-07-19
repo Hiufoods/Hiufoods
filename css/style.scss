@@ -44,9 +44,8 @@ $textCol: #999;
 body {
   @include main-font;
   color: #0c0c0c;
-  background-color: #ffffff;
+  background-color: #ff0;
   overflow-x: hidden;
-  background-image: url(../images/body-bg.jpg);
   background-size: cover;
 }
 
@@ -131,7 +130,7 @@ a:focus {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-image: url(../images/hero-bg.jpg);
+  background-color:#000;
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -679,7 +678,7 @@ h4{
 // end client section
 
 .footer_container {
-  background-image: url(../images/footer-bg.png);
+  background-color:#000;
   background-size: 100%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
