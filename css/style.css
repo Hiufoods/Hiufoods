@@ -6,9 +6,8 @@
 body {
   font-family: "Poppins", sans-serif;
   color: #0c0c0c;
-  background-color: #ffffff;
+  background-color: #ff0;
   overflow-x: hidden;
-  background-image: url(../images/body-bg.jpg);
   background-size: cover;
 }
 
@@ -293,7 +292,7 @@ a:focus {
 }
 
 .slider_section .detail-box h1 span {
-  color: #4855fe;
+  color: #000000;
 }
 
 .slider_section .find_container .form-row {
@@ -416,8 +415,8 @@ a:focus {
 
 .slider_section .slider_container .slick-prev:hover,
 .slider_section .slider_container .slick-next:hover {
-  background-color: #4855fe;
-  color: #ffffff;
+  background-color: #000000;
+  color: #ffff00;
 }
 
 .slider_section .slider_container .slick-prev {
@@ -476,10 +475,10 @@ a:focus {
   width: 45px;
   height: 45px;
   line-height: 45px;
-  background-color: #4855fe;
+  background-color: #495057;
   border-radius: 100%;
   font-size: 12px;
-  color: #ffffff;
+  color: #ffff00;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
