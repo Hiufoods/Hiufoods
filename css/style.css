@@ -280,7 +280,7 @@ a:focus {
 }
 
 .slider_section .detail-box {
-  color: #ffffff;
+  color: #000000;
   text-align: center;
 }
 
@@ -681,10 +681,10 @@ a:focus {
   width: 45px;
   height: 45px;
   line-height: 45px;
-  background-color: #ffe537;
+  background-color: #00000;
   border-radius: 100%;
   font-size: 12px;
-  color: #ffffff;
+  color: #ffff00;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   opacity: 1;
@@ -698,7 +698,7 @@ a:focus {
 }
 
 .footer_container {
-  background-image: url(../images/footer-bg.png);
+  background-color: #000;
   background-size: 100%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -746,11 +746,11 @@ a:focus {
 .info_section .social_box a {
   margin: 0 20px;
   font-size: 18px;
-  color: #ffffff;
+  color: #ff0;
 }
 
 .info_section .social_box a:hover {
-  color: #ffe537;
+  color: #000;
 }
 
 .info_section .info_links {
@@ -774,7 +774,7 @@ a:focus {
 }
 
 .info_section .info_links ul li a {
-  color: #ffffff;
+  color: #ff0;
 }
 
 .info_section .info_links ul li a:hover {
@@ -785,7 +785,7 @@ a:focus {
 .footer_section {
   position: relative;
   text-align: center;
-  background-color: #070e6a;
+  background-color: #000;
 }
 
 .footer_section p {
