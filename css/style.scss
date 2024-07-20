@@ -294,7 +294,8 @@ a:focus {
       font-size: 4rem;
       font-weight: bold;
       margin-bottom: 15px;
-      @include secondary-font();
+      font-family:"Poppins",ui-sans-serif;
+      font-weight:700;
 
 
       span {
