@@ -280,7 +280,7 @@ a:focus {
 }
 
 .slider_section .detail-box {
-  color: #800080;
+  color: #ffe537;
   text-align: center;
 }
 
@@ -325,7 +325,7 @@ a:focus {
   position: absolute;
   right: 25px;
   top: 10px;
-  color: #800080;
+  color: #ffe537;
 }
 
 .slider_section .find_container form .btn-box {
@@ -486,7 +486,7 @@ a:focus {
 
 .recipe_section .box .detail-box a:hover {
   background-color: #000000;
-  color: #ffffff;
+  color: #ffe537;
 }
 
 .recipe_section .box:hover .img-box img {
