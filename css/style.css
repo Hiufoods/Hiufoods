@@ -137,9 +137,9 @@ a:focus {
 }
 
 .navbar-brand span {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
-  color: #ffffff;
+  color: #ffe537;
 }
 
 .User_option {
@@ -339,19 +339,19 @@ a:focus {
   text-align: center;
   display: inline-block;
   padding: 10px 25px;
-  background-color: #ffe537;
-  color: #000000;
+  background-color: #800080;
+  color: #ffe537;
   border-radius: 45px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #ffe537;
+  border: 1px solid #800080;
   outline: none;
   text-transform: uppercase;
 }
 
 .slider_section .find_container form .btn-box button.btn:hover {
   background-color: transparent;
-  color: #ffe537;
+  color: #800080;
 }
 
 .slider_section .slider_container {
@@ -594,17 +594,17 @@ a:focus {
   width: 45px;
   height: 45px;
   line-height: 45px;
-  background-color: #4855fe;
+  background-color: #800080;
   border-radius: 100%;
   font-size: 12px;
-  color: #ffffff;
+  color: #ffe537;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 .about_section .detail-box a:hover {
-  background-color: #ffe537;
-  color: #000000;
+  background-color: #000000;
+  color: #ffe537;
 }
 
 .news_section .box {
@@ -631,17 +631,17 @@ a:focus {
   width: 45px;
   height: 45px;
   line-height: 45px;
-  background-color: #4855fe;
+  background-color: #800080;
   border-radius: 100%;
   font-size: 12px;
-  color: #ffffff;
+  color: #ffe537;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 .news_section .box .detail-box a:hover {
-  background-color: #ffe537;
-  color: #000000;
+  background-color: #000000;
+  color: #ffe537;
 }
 
 .client_section {
@@ -673,7 +673,7 @@ a:focus {
 
 .client_section .detail-box i.fa-quote-left {
   font-size: 24px;
-  color: #4855fe;
+  color: #800080;
 }
 
 .client_section .carousel-control-next {
@@ -681,10 +681,10 @@ a:focus {
   width: 45px;
   height: 45px;
   line-height: 45px;
-  background-color: #ffe537;
+  background-color: #800080;
   border-radius: 100%;
   font-size: 12px;
-  color: #ffffff;
+  color: #ffe537;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   opacity: 1;
@@ -693,8 +693,8 @@ a:focus {
 }
 
 .client_section .carousel-control-next:hover {
-  background-color: #4855fe;
-  color: #ffffff;
+  background-color: #000000;
+  color: #ffe537;
 }
 
 .footer_container {
@@ -708,7 +708,7 @@ a:focus {
 }
 
 .info_section {
-  color: #ffffff;
+  color: #ffe537;
   padding: 45px 0;
   background-color: #070e6a;
 }
@@ -727,7 +727,7 @@ a:focus {
 .info_section .contact_box a {
   margin: 0 10px;
   font-size: 24px;
-  color: #ffffff;
+  color: #ffe537;
 }
 
 .info_section .contact_box a:hover {
@@ -746,12 +746,12 @@ a:focus {
 .info_section .social_box a {
   margin: 0 20px;
   font-size: 18px;
-  color: #ffffff;
+  color: #ffe537;
 }
 
 .info_section .social_box a:hover {
   color: #ffe537;
-}
+
 
 .info_section .info_links {
   margin: 25px 0;
@@ -774,18 +774,18 @@ a:focus {
 }
 
 .info_section .info_links ul li a {
-  color: #ffffff;
+  color: #ffe53;
 }
 
 .info_section .info_links ul li a:hover {
-  color: #ffe537;
+  color: #800080;
 }
 
 /* footer section*/
 .footer_section {
   position: relative;
   text-align: center;
-  background-color: #070e6a;
+  background-color: #800080;
 }
 
 .footer_section p {
