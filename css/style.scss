@@ -6,9 +6,8 @@ $textCol: #999;
 
 // import fonts
 @font-face {
-  font-family: "bodoni svtytwo sc itc tt book";
-  src: url(../fonts/bodoni-svtytwo-sc-itc-tt-book.ttf);
-
+  font-family: "Poppins", sans-serif;
+  
 }
 
 @mixin main-font {
@@ -16,7 +15,7 @@ $textCol: #999;
 }
 
 @mixin secondary-font {
-  font-family: "bodoni svtytwo sc itc tt book", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 
@@ -330,7 +329,7 @@ a:focus {
         position: absolute;
         right: 25px;
         top: 10px;
-        color: #fff;
+        color: #ffe537;
       }
 
       .btn-box {
