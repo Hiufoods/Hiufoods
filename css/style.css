@@ -54,7 +54,7 @@ body {
   position: relative;
   font-weight: bold;
   margin-bottom: 0;
-  font-family: "bodoni svtytwo sc itc tt book", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   padding-bottom: 7px;
 }
@@ -154,7 +154,7 @@ a:focus {
 }
 
 .User_option a {
-  color: #ffffff;
+  color: #ffe537;
   margin-left: 25px;
 }
 
@@ -168,7 +168,7 @@ a:focus {
 }
 
 .User_option .form-inline button {
-  color: #ffffff;
+  color: #ffe537;
 }
 
 .custom_menu-btn {
@@ -225,7 +225,7 @@ a:focus {
   padding: 0px;
   text-decoration: none;
   font-size: 22px;
-  color: #ffffff;
+  color: #ffe537;
   display: block;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -280,7 +280,7 @@ a:focus {
 }
 
 .slider_section .detail-box {
-  color: #ffffff;
+  color: #ffe537;
   text-align: center;
 }
 
@@ -288,12 +288,12 @@ a:focus {
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 15px;
-  font-family: "bodoni svtytwo sc itc tt book", sans-serif;
-  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 
 .slider_section .detail-box h1 span {
-  color: #4855fe;
+  color: #ffe537;
 }
 
 .slider_section .find_container .form-row {
@@ -325,7 +325,7 @@ a:focus {
   position: absolute;
   right: 25px;
   top: 10px;
-  color: #eaeae8;
+  color: #800080;
 }
 
 .slider_section .find_container form .btn-box {
@@ -339,19 +339,19 @@ a:focus {
   text-align: center;
   display: inline-block;
   padding: 10px 25px;
-  background-color: #800080;
-  color: #ffe537;
+  background-color: #ffe537;
+  color: #800080;
   border-radius: 45px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #800080;
+  border: 2px solid #ffe537;
   outline: none;
   text-transform: uppercase;
 }
 
 .slider_section .find_container form .btn-box button.btn:hover {
   background-color: transparent;
-  color: #800080;
+  color: #000000;
 }
 
 .slider_section .slider_container {
@@ -416,8 +416,8 @@ a:focus {
 
 .slider_section .slider_container .slick-prev:hover,
 .slider_section .slider_container .slick-next:hover {
-  background-color: #4855fe;
-  color: #ffffff;
+  background-color: #8000800;
+  color: #ffe537;
 }
 
 .slider_section .slider_container .slick-prev {
@@ -468,7 +468,7 @@ a:focus {
 }
 
 .recipe_section .box .detail-box h4 {
-  font-family: "bodoni svtytwo sc itc tt book", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 
@@ -476,17 +476,17 @@ a:focus {
   width: 45px;
   height: 45px;
   line-height: 45px;
-  background-color: #4855fe;
+  background-color: #800080;
   border-radius: 100%;
   font-size: 12px;
-  color: #ffffff;
+  color: #ffe537;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
 .recipe_section .box .detail-box a:hover {
-  background-color: #ffe537;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .recipe_section .box:hover .img-box img {
@@ -507,18 +507,18 @@ a:focus {
 .recipe_section .btn-box a {
   display: inline-block;
   padding: 10px 45px;
-  background-color: #ffe537;
-  color: #000000;
+  background-color: #800080;
+  color: #ffe537;
   border-radius: 45px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #ffe537;
+  border: 1px solid #800080;
   outline: none;
 }
 
 .recipe_section .btn-box a:hover {
   background-color: transparent;
-  color: #ffe537;
+  color: #000000;
 }
 
 .app_section {
