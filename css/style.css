@@ -709,8 +709,8 @@ a:focus {
 
 .info_section {
   color: #ffe537;
-  padding: 45px 0;
-  background-color: #070e6a;
+  padding: 20px 0;
+  background-color: #760088;
 }
 
 .info_section .contact_box {
@@ -720,7 +720,7 @@ a:focus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: 350px;
+  max-width: 100%;
   margin: auto;
 }
 
