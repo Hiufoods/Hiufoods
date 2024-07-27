@@ -110,7 +110,7 @@ a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-image: url(../images/hero-bg.jpg);
+  background-image: url(../images/hero-bg.png);
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
