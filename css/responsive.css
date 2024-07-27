@@ -39,19 +39,6 @@
     right: 25px;
   }
 
-  .recipe_section {
-    padding-bottom: 90px;
-  }
-
-  .app_section {
-    background: #4855fe;
-    padding: 75px 0;
-  }
-
-  .app_section .detail-box {
-    margin-bottom: 45px;
-  }
-
 
   .info_section .info_links ul {
     display: flex;
