@@ -530,51 +530,6 @@ a:focus {
   color: #ffffff;
 }
 
-.app_section .row {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.app_section .detail-box h2 {
-  margin-bottom: 25px;
-}
-
-.app_section .detail-box h2 span {
-  color: #ffe537;
-}
-
-.app_section .detail-box p {
-  margin-bottom: 0;
-}
-
-.app_section .detail-box .app_btn_box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 35px 0;
-}
-
-.app_section .detail-box .app_btn_box a {
-  width: 145px;
-}
-
-.app_section .detail-box .download_btn {
-  display: inline-block;
-  padding: 12px 45px;
-  background-color: #ffe537;
-  color: #000000;
-  border-radius: 45px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: 1px solid #ffe537;
-  outline: none;
-}
-
-.app_section .detail-box .download_btn:hover {
-  background-color: transparent;
-  color: #ffe537;
-}
 
 .about_section .box {
   text-align: center;
