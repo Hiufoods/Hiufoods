@@ -169,7 +169,7 @@ a:focus {
   margin-right: 75px;
 
   a {
-    color: $white;
+    color: $primary2;
     margin-left: 25px;
   }
 
@@ -399,10 +399,10 @@ a:focus {
       width: 45px;
       height: 45px;
       line-height: 45px;
-      background-color: $primary2;
+      background-color: #800080;
       border-radius: 100%;
       font-size: 12px;
-      color: $black;
+      color: $primary2;
       transition: all 0.3s;
       border: none;
       outline: none;
@@ -411,8 +411,8 @@ a:focus {
       margin: 0;
 
       &:hover {
-        background-color: $primary1;
-        color: $white;
+        background-color: $black;
+        color: $primary2;
       }
     }
 
@@ -462,13 +462,13 @@ a:focus {
       align-items: center;
       margin-top: 15px;
 h4{
-  @include secondary-font();
+  @include main-font();
 }
       a {
         width: 45px;
         height: 45px;
         line-height: 45px;
-        background-color: $primary1;
+        background-color: #800080;
         border-radius: 100%;
         font-size: 12px;
         color: $white;
@@ -609,7 +609,7 @@ h4{
         width: 45px;
         height: 45px;
         line-height: 45px;
-        background-color: $primary1;
+        background-color: #800080;
         border-radius: 100%;
         font-size: 12px;
         color: $white;
