@@ -330,7 +330,7 @@ a:focus {
         position: absolute;
         right: 25px;
         top: 10px;
-        color: #eaeae8;
+        color: #fff;
       }
 
       .btn-box {
@@ -339,7 +339,7 @@ a:focus {
         button.btn {
           width: 100%;
           text-align: center;
-          @include hero_btn($primary2, $black, 10px, 25px, 45px);
+          @include hero_btn($black, $white, 10px, 25px, 45px);
           text-transform: uppercase;
         }
       }
