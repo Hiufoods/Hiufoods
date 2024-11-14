@@ -737,7 +737,7 @@ body.active { overflow: hidden; }
 
 .food-menu-card {
   
-  
+  display:hidden;
   background-color: var(--white);
   padding: 40px;
   box-shadow: var(--shadow-2);
