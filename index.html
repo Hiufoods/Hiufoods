@@ -991,18 +991,18 @@
 
   // Get all elements with class="food-menu-card" and hide them
   food-menu-card = document.getElementsByClassName("food-menu-card");
-  for (i = 0; i < tabcontent.length; i++) {
+  for (i = 0; i < food-menu-card.length; i++) {
     food-menu-card[i].style.display = "none";
   }
 
   // Get all elements with class="filter-btn" and remove the class "active"
   filter-btn = document.getElementsByClassName("filter-btn");
-  for (i = 0; i < tablinks.length; i++) {
+  for (i = 0; i < filter-btn.length; i++) {
     food-menu-card[i].className = filter-btn[i].className.replace(" active", "");
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(menuName).style.display = "block";
   evt.currentTarget.className += " active";
   }
 </script>
