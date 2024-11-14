@@ -692,7 +692,6 @@ body.active { overflow: hidden; }
 \*-----------------------------------*/
 
 .food-menu {
-  overflow: hidden;
   background-color: var(--isabelline);
   text-align: center;
 }
@@ -706,6 +705,7 @@ body.active { overflow: hidden; }
 }
 
 .fiter-list {
+  overflow: hidden;
   display: flex;
   overflow: hidden;
   flex-wrap: wrap;
