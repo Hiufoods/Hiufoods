@@ -706,6 +706,7 @@ body.active { overflow: hidden; }
 
 .fiter-list {
   display: flex;
+  overflow: hidden;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
@@ -733,6 +734,7 @@ body.active { overflow: hidden; }
 }
 
 .food-menu-card {
+  display:none;
   animation: fadeEffect 1s; /* Fading effect takes 1 second */
 
 
