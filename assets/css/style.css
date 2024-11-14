@@ -705,7 +705,7 @@ body.active { overflow: hidden; }
 }
 
 .fiter-list {
-  overflow: hidden;
+  
   display: flex;
   overflow: hidden;
   flex-wrap: wrap;
@@ -730,6 +730,7 @@ body.active { overflow: hidden; }
 }
 
 .food-menu-list {
+  overflow: hidden;
   display: grid;
   gap: 30px;
 }
