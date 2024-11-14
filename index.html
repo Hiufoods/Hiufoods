@@ -408,22 +408,22 @@
           <ul class="fiter-list">
 
             <li>
-              <button class="filter-btn  active">All</button>
+              <button class="filter-btn" onclick="openMenu(event, 'all')">All</button>
             </li>
 
             <li>
-              <button class="filter-btn">Dimsum</button>
+              <button class="filter-btn" onclick="openMenu(event, 'dimsum')">Dimsum</button>
             </li>
 
             <li>
-              <button class="filter-btn">Jasuke</button>
+              <button class="filter-btn" onclick="openMenu(event, 'jasuke')">Jasuke</button>
             </li>
           </ul>
 
           <ul class="food-menu-list">
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card" id"dimsum">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-1.png" width="300" height="300" loading="lazy"
@@ -462,7 +462,7 @@
             </li>
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card" id"dimsum">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-2.png" width="300" height="300" loading="lazy"
@@ -501,7 +501,7 @@
             </li>
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card" id"dimsum">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-3.png" width="300" height="300" loading="lazy"
@@ -540,7 +540,7 @@
             </li>
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card" id"jasuke" id"jasuke">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-4.png" width="300" height="300" loading="lazy"
@@ -579,7 +579,7 @@
             </li>
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card" id"all">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-5.png" width="300" height="300" loading="lazy"
@@ -984,7 +984,28 @@
 
 
 
+<script>
+  function openMenu(evt, menuName) {
+  // Declare all variables
+  var i, food-menu-card, filter-btn;
 
+  // Get all elements with class="food-menu-card" and hide them
+  food-menu-card = document.getElementsByClassName("food-menu-card");
+  for (i = 0; i < tabcontent.length; i++) {
+    food-menu-card[i].style.display = "none";
+  }
+
+  // Get all elements with class="filter-btn" and remove the class "active"
+  filter-btn = document.getElementsByClassName("filter-btn");
+  for (i = 0; i < tablinks.length; i++) {
+    food-menu-card[i].className = filter-btn[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+  }
+</script>
 
   <!-- 
     - custom js link
