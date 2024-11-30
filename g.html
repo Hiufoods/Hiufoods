@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Kritik dan Saran</title>
+</head>
+<body>
+    <h1>Form Kritik dan Saran</h1>
+    <form id="feedbackForm" action="">
+        <!-- Input Nama -->
+        <label for="name">Nama:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Input Nomor HP -->
+        <label for="phone">Nomor HP:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <!-- Input Pesan -->
+        <label for="message">Pesan:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+        <!-- Input Tanggal (Otomatis) -->
+        <label for="date">Tanggal:</label><br>
+        <input type="text" id="date" name="date" readonly><br><br>
+
+        <!-- Tombol Kirim -->
+        <button type="submit">Kirim</button>
+    </form>
+
+    <script>
+        // Set tanggal otomatis saat halaman dimuat
+        document.getElementById('date').value = new Date().toLocaleDateString();
+
+        // Proses form saat dikirim
+        document.getElementById('feedbackForm').addEventListener('submit', async function (e) {
+            e.preventDefault(); // Hentikan submit form default
+
+            // Ambil data dari form
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            const date = document.getElementById('date').value;
+
+            // Kirim data ke Google Apps Script
+            const response = await fetch('https://script.google.com/macros/s/AKfycbwB5-IblpRiU6t9eVp7-Td1irwNoE-GoFJWSyuj4H_exYTgOmEWN9UbcvtYcs367y9Vzw/exec', { // Ganti dengan URL Web App Anda
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, phone, message, date }),
+            });
+
+            // Tampilkan notifikasi sukses/gagal
+            if (response.ok) {
+                alert('Data berhasil dikirim!');
+                document.getElementById('feedbackForm').reset();
+                document.getElementById('date').value = new Date().toLocaleDateString(); // Reset tanggal
+            } else {
+                alert('Terjadi kesalahan. Silakan coba lagi.');
+            }
+        });
+    </script>
+</body>
+</html>
