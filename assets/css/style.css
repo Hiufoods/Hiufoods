@@ -572,6 +572,7 @@ body.active { overflow: hidden; }
 \*-----------------------------------*/
 
 .promo-card {
+ aspect-ratio: 3 / 2;
   position: relative;
   background-color: var(--white);
   text-align: center;
@@ -692,6 +693,7 @@ body.active { overflow: hidden; }
 \*-----------------------------------*/
 
 .food-menu {
+	
   background-color: var(--isabelline);
   text-align: center;
 }
@@ -704,14 +706,14 @@ body.active { overflow: hidden; }
   margin-block-end: 30px;
 }
 
-.fiter-list {
-  
+.filter-list {
   display: flex;
   overflow: hidden;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   margin-block-end: 40px;
+  
 }
 
 .filter-btn {
@@ -724,6 +726,10 @@ body.active { overflow: hidden; }
 }
 
 .filter-btn.active {
+	text-align: center;
+	display: flex;
+  flex-direction: column;
+  gap: 10px; /* Memberikan jarak antar tombol */
   background-color: var(--deep-saffron);
   --color: var(--white);
   --border-color: var(--deep-saffron);
@@ -737,9 +743,9 @@ body.active { overflow: hidden; }
 
 .food-menu-card {
   
-  display:hidden;
+  display:none;
   background-color: var(--white);
-  padding: 40px;
+  padding: 35px;
   box-shadow: var(--shadow-2);
 }
 
