@@ -32,50 +32,56 @@
   <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
   <style>
   	
-  /* Button styling for View Cart */
+/* Reset dan Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    padding-bottom: 70px; /* Memberikan ruang untuk footer */
+}
+
+/* Cart Button */
 #cart-button {
-    background-color: #f95;
-    color: #fff;
+    background-color: #FF9944;
+    color: white;
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
     font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
 }
 
 #cart-button:hover {
-    background-color: #000;
+    background-color: #e05d51;
 }
 
-#cart-button:focus {
-    outline: none;
-}
-
-/* Cart Container */
+/* Cart Modal - Sticky Cart at the bottom */
 #cart-container {
-    display: none;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 60px;
     position: fixed;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 600px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px;
+    box-shadow: 0 -6px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    overflow-y: auto;
+    display: none; /* Hidden by default, will be toggled */
     font-size: 16px;
     color: #333;
 }
 
-/* Cart Items */
+/* Cart Items List */
 #cart {
     list-style-type: none;
     padding: 0;
+    margin-bottom: 10px;
 }
 
 #cart li {
@@ -83,16 +89,14 @@
     justify-content: space-between;
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
-    font-size: 16px;
 }
 
 #cart li button {
     background-color: #e05d51;
-    color: #fff;
-    border: none;
+    color: white;
     padding: 5px 10px;
     border-radius: 5px;
-    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #cart li button:hover {
@@ -103,44 +107,55 @@
 #total-price {
     font-size: 18px;
     font-weight: bold;
-    margin-top: 20px;
-    text-align: right;
     color: #333;
+    margin-top: 10px;
+    text-align: right;
 }
 
-/* Send WhatsApp Button */
+/* Send to WhatsApp Button */
 #send-whatsapp-button {
     background-color: #25d366;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    color: white;
+    padding: 10px;
     font-size: 16px;
     width: 100%;
-    cursor: pointer;
-    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    border-radius: 5px;
 }
 
 #send-whatsapp-button:hover {
     background-color: #128c7e;
 }
 
-/* Close Cart (optional) */
+/* Close Cart Button */
 #close-cart-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #f94;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
+    top: -27px;
+    right: 25px;
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px;
     border-radius: 50%;
-    cursor: pointer;
     font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #close-cart-button:hover {
     background-color: #000;
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 600px) {
+    #cart-container {
+        padding: 10px;
+        width: 100%;
+    }
+
+    #cart-button, #send-whatsapp-button {
+        width: 100%;
+    }
 }
 
 /* Basic reset for buttons and input */
