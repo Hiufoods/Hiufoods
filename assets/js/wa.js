@@ -121,10 +121,33 @@ let category = '';
         };
         cart.push(cartItem);
     }
+    
 
+    // Show success alert with custom message
+    showSimpleAlert(`${productName} berhasil ditambahkan ke keranjang!`, 'success');
+    
     // Store the updated cart in a cookie
     storeCartInCookie();
     updateCartDisplay();
+}
+// Fungsi untuk menampilkan alert sederhana
+function showSimpleAlert(message, type) {
+    const alertBox = document.getElementById('simple-alert');
+    const alertMessage = document.getElementById('alert-message');
+    
+    // Set the alert message
+    alertMessage.textContent = message;
+    
+    // Set alert type (success, error, warning, info)
+    alertBox.className = `simple-alert ${type}`;
+    
+    // Show the alert
+    alertBox.style.display = 'block';
+    
+    // Hide the alert after 3 seconds
+    setTimeout(() => {
+        alertBox.style.display = 'none';
+    }, 7000);
 }
 
 function updateCartDisplay() {
@@ -208,7 +231,8 @@ function sendWhatsAppMessage() {
 
     // Membuka WhatsApp dengan pesan yang sudah terisi
     window.open(url, '_blank');
-
+// Tampilkan alert setelah pesan berhasil dikirim
+    WAlert("Pesanan berhasil dikirim ke WhatsApp!", 'success');
     // Remove the cart cookie after sending the order
     removeCartCookie();
 }
@@ -217,6 +241,24 @@ function sendWhatsAppMessage() {
 window.onload = function() {
     loadCartFromCookie();
 };
+function WAlert(message, type) {
+    const alertBox = document.getElementById('simple-alert');
+    const alertMessage = document.getElementById('alert-message');
+    
+    // Set the alert message
+    alertMessage.textContent = message;
+    
+    // Set alert type (success, error, warning, info)
+    alertBox.className = `simple-alert ${type}`;
+    
+    // Show the alert
+    alertBox.style.display = 'block';
+    
+    // Hide the alert after 3 seconds
+    setTimeout(() => {
+        alertBox.style.display = 'none';
+    }, 15000);
+}
 // Toggle cart visibility
 function toggleCart() {
     const cartContainer = document.getElementById('cart-container');
