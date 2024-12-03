@@ -1,0 +1,1222 @@
+import Script from './assets/js/script';
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HIUfoods Dimsum dan Jasuke Enak Di lamongan.!</title>
+
+  <!--
+                                                                                                                                                                                                                                                                                                                                                                            - favicon
+                                                                                                                                                                                                                                                                                                                                                                          -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!--
+                                                                                                                                                                                                                                                                                                                                                                            - custom css link
+                                                                                                                                                                                                                                                                                                                                                                          -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+                                                                                                                                                                                                                                                                                                                                                                            - google font link
+                                                                                                                                                                                                                                                                                                                                                                          -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap"
+  rel="stylesheet">
+
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png" media="min-width(768px)">
+  <link rel="preload" as="image" href="./assets/images/hero-banner-bg.png" media="min-width(768px)">
+  <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
+  <style>
+  	
+  /* Button styling for View Cart */
+#cart-button {
+    background-color: #f95;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+#cart-button:hover {
+    background-color: #000;
+}
+
+#cart-button:focus {
+    outline: none;
+}
+
+/* Cart Container */
+#cart-container {
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 60px;
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    z-index: 1000;
+    overflow-y: auto;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Cart Items */
+#cart {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+#cart li button {
+    background-color: #e05d51;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cart li button:hover {
+    background-color: #ff6f61;
+}
+
+/* Total Price */
+#total-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+    color: #333;
+}
+
+/* Send WhatsApp Button */
+#send-whatsapp-button {
+    background-color: #25d366;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#send-whatsapp-button:hover {
+    background-color: #128c7e;
+}
+
+/* Close Cart (optional) */
+#close-cart-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f94;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#close-cart-button:hover {
+    background-color: #000;
+}
+
+/* Basic reset for buttons and input */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.quantity-control button {
+    padding: 8px 8px;
+    background-color: #f94;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    color:#fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-control button:hover {
+    background-color: #000;
+}
+
+.quantity-control input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    background-color: #f94;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0;
+}
+
+.quantity-control input:focus {
+    outline: none;
+    border-color: #fff;
+}
+
+.quantity-control button:disabled {
+    background-color: #f94;
+    cursor: not-allowed;
+}
+
+.cart-action {
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    margin-top: 10px;
+}
+  </style>
+</head>
+
+<body id="top">
+
+  <!--
+                                                                                                                                                                                                                                                                                                                                                                            - #HEADER
+                                                                                                                                                                                                                                                                                                                                                                          -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <h1>
+        <a href="#" class="logo">HIUfoods<span class="span">.</span></a>
+      </h1>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="nav-item">
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#about" class="navbar-link" data-nav-link>About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#food-menu" class="navbar-link" data-nav-link>Shop</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#map" class="navbar-link" data-nav-link>Lokasi</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="navbar-link" data-nav-link>Contact Us</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="header-btn-group">
+        <button class="search-btn" aria-label="Search" data-search-btn>
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+
+        <!-- Cart Button -->
+<button id="cart-button" onclick="toggleCart()">View Cart</button>
+
+        <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+          <span class="line top"></span>
+          <span class="line middle"></span>
+          <span class="line bottom"></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+<!-- Cart Container -->
+<div id="cart-container">
+    <!-- Close Button -->
+    <button id="close-cart-button" onclick="toggleCart()">X</button>
+    
+    <ul id="cart">
+        <!-- Cart items will appear here -->
+    </ul>
+    
+    <div id="total-price">Total Price: 0 IDR</div>
+    
+    <button id="send-whatsapp-button" onclick="sendWhatsAppMessage()">Send Order to WhatsApp</button>
+</div>
+  <main>
+    <article>
+    	
+
+            <section class="hero" id="home" style="background-image: url('./assets/images/hero-bg.jpg')">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle">
+              Eat Sleep And Shop
+            </p>
+
+            <h2 class="h1 hero-title">Dimsum Termaknyus di lamongan!</h2>
+
+            <p class="hero-text">
+              Makanan yang siap memanjakan lidahmu dan membuat bahagia.
+            </p>
+
+            <button class="btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+
+          </div>
+
+          <figure class="hero-banner">
+            <img src="./assets/images/hero-banner-bg.png" width="820" height="716" alt="" aria-hidden="true"
+            class="w-100 hero-img-bg">
+
+            <img src="./assets/images/mentai.png" width="700" height="637" loading="lazy" alt="mentai"
+            class="w-100 hero-img">
+          </figure>
+
+        </div>
+      </section>
+
+<section class="section section-divider white promo">
+  <div class="container">
+    <ul class="promo-list has-scrollbar">
+      <!-- Jasuke Section -->
+      <li class="promo-item">
+        <div class="promo-card">
+          <div class="product">
+            <h3 class="h3 card-title">JASUKE</h3>
+            <p class="card-text">Kategori jasuke</p>
+            <img src="./assets/images/jasuke.png" width="300" height="300" loading="lazy" alt="Mentai" class="w-100 card-banner">
+            
+            <div class="filter-list">
+              <div class="dropdown">
+                <select id="jasuke-product" onchange="updatePrice('jasuke')">
+                  <option value="Jasuke Original">Jasuke Original (8000 IDR)</option>
+                  <option value="Choco melted">Choco melted (10000 IDR)</option>
+                  <option value="Choco crunchy">Choco crunchy (10000 IDR)</option>
+                  <option value="Cream cheese">Cream cheese (10000 IDR)</option>
+                  <option value="Matcha">Matcha (10000 IDR)</option>
+                  <option value="Mozzarella Original">Mozzarella Original (13000 IDR)</option>
+                  <option value="Mozzarella Choco melted">Mozzarella Choco melted (15000 IDR)</option>
+                  <option value="Mozzarella Choco crunchy">Mozzarella Choco crunchy (15000 IDR)</option>
+                  <option value="Mozzarella Cream cheese">Mozzarella Cream cheese (15000 IDR)</option>
+                  <option value="Mozzarella Matcha">Mozzarella Matcha (15000 IDR)</option>
+                </select>
+              </div>
+              </div>
+              <div class="quantity-control">
+<button id="jasuke-decrease" onclick="adjustQuantity('jasuke', 'decrease')">[-]</button>
+<input type="number" id="jasuke-quantity" value="1" min="1" type="hidden">
+              <button id="jasuke-increase" onclick="adjustQuantity('jasuke', 'increase')">[+]</button>
+           </div><div class="cart-action">
+           <button id="add-to-cart-jasuke" class="filter-btn" onclick="addToCart('jasuke')">Masukan Keranjang</button>
+            
+            </div>
+            <div class="filter-list" style="color:#fff; font-size:14px;">
+              Harga Total : Rp <span id="jasuke-total-price">8000</span>,-
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Dimsum Section -->
+      <li class="promo-item">
+        <div class="promo-card">
+          <div class="product">
+            <h3 class="h3 card-title">Dimsum</h3>
+            <p class="card-text">Kategori Dimsum</p>
+            <img src="./assets/images/udangkeju.png" width="300" height="300" loading="lazy" alt="Dimsum" class="w-100 card-banner">
+            
+            <div class="filter-list">
+              <div class="dropdown">
+                <select id="dimsum-product" onchange="updatePrice('dimsum')">
+                  <option value="Udang Keju">Udang Keju (10000 IDR)</option>
+                  <option value="Siomay Dimsum">Siomay Dimsum (10000 IDR)</option>
+                  <option value="Gyoza Kukus">Gyoza Kukus (10000 IDR)</option>
+                  <option value="Gyoza Goreng">Gyoza Goreng (10000 IDR)</option>
+                  <option value="Gyoza Mix">Gyoza Mix (10000 IDR)</option>
+                </select>
+                </div>
+              </div><div class="quantity-control">
+<button id="dimsum-decrease" onclick="adjustQuantity('dimsum', 'decrease')">-</button>
+<input type="number" id="dimsum-quantity" value="1" min="1" type="hidden">
+              <button id="dimsum-increase" onclick="adjustQuantity('dimsum', 'increase')">+</button>
+              </div>
+              <div class="cart-action">
+                            <button id="add-to-cart-dimsum" class="filter-btn" onclick="addToCart('dimsum')">Masukan Keranjang</button>
+            </div>
+            <div class="filter-list" style="color:#fff; font-size:14px;">
+              Harga Total : Rp <span id="dimsum-total-price">10000</span>,-
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <!-- Mentai Section -->
+      <li class="promo-item">
+        <div class="promo-card">
+          <div class="product">
+            <h3 class="h3 card-title">Mentai Series</h3>
+            <p class="card-text">Kategori Mentai</p>
+            <img src="./assets/images/mentai.png" width="300" height="300" loading="lazy" alt="Mentai" class="w-100 card-banner">
+            
+            <div class="filter-list">
+              <div class="dropdown">
+                <select id="mentai-product" onchange="updatePrice('mentai')">
+                  <option value="SiomaySmall">Siomay Mentai - Small (15000 IDR)</option>
+                  <option value="SiomayMedium">Siomay Mentai - Medium (29000 IDR)</option>
+                  <option value="SiomayLarge">Siomay Mentai - Large (58000 IDR)</option>
+                  <option value="GyozaSmall">Gyoza Mentai - Small (15000 IDR)</option>
+                  <option value="GyozaMedium">Gyoza Mentai - Medium (29000 IDR)</option>
+                  <option value="GyozaLarge">Gyoza Mentai - Large (58000 IDR)</option>
+                  <option value="MixSmall">Mix Mentai - Small (15000 IDR)</option>
+                  <option value="MixMedium">Mix Mentai - Medium (29000 IDR)</option>
+                  <option value="MixLarge">Mix Mentai - Large (58000 IDR)</option>
+                </select>
+              </div>
+              </div>
+<div class="quantity-control">
+            
+              <button id="mentai-decrease" onclick="adjustQuantity('mentai', 'decrease')">-</button>
+              <input type="number" id="mentai-quantity" value="1" min="1" type="hidden">
+                            <button id="mentai-increase" onclick="adjustQuantity('mentai', 'increase')">+</button>
+            </div>
+<div class="cart-action">
+<button id="add-to-cart-mentai" class="filter-btn" onclick="addToCart('mentai')">Masukan Keranjang</button>
+</div>
+            <div class="filter-list" style="color:#fff; font-size:14px;">
+              Harga Total : Rp <span id="mentai-total-price">15000</span>,-
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+      <section class="section section-divider gray about" id="about">
+        <div class="container">
+
+          <div class="about-banner">
+            <img src="./assets/images/udangkeju.png" width="509" height="459" loading="lazy" alt="Burger with Drinks"
+            class="w-100 about-img">
+
+            <img src="./assets/images/sale-shape-red.png" width="216" height="226" alt="get up to 50% off now"
+            class="abs-img scale-up-anim">
+          </div>
+
+          <div class="about-content">
+
+            <h2 class="h2 section-title">
+              Dimsum Jasuke
+              <span class="span">Di Lamongan!</span>
+            </h2>
+
+            <p class="section-text">
+              Semua makanan handmade di produksi sendiri ya.
+            </p>
+
+            <ul class="about-list">
+
+              <li class="about-item">
+                <ion-icon name="checkmark-outline"></ion-icon>
+
+                <span class="span">Lezat & Bergizi</span>
+              </li>
+
+              <li class="about-item">
+                <ion-icon name="checkmark-outline"></ion-icon>
+
+                <span class="span">Cocok buat semua kalangan</span>
+              </li>
+
+              <li class="about-item">
+                <ion-icon name="checkmark-outline"></ion-icon>
+
+                <span class="span">Tanpa pengawet</span>
+              </li>
+
+              <li class="about-item">
+                <ion-icon name="checkmark-outline"></ion-icon>
+
+                <span class="span">Fresh food</span>
+              </li>
+
+            </ul>
+
+            <button class="btn btn-hover"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!--
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                - #FOOD MENU
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                -->
+
+      <section class="section food-menu" id="food-menu">
+        <div class="container">
+          <p class="section-subtitle">
+            Makanan Populer
+          </p>
+          <h2 class="h2 section-title">Best <span class="span">Seller</span></h2>
+          <p class="section-text">
+            Makanan bergizi by HIUfoods.
+          </p>
+          <div class="filter-list">
+
+            <button class="filter-btn" onclick="openFoodMenu(event, 'all')">All</button>
+            <button class="filter-btn" onclick="openFoodMenu(event, 'mentai')">Mentai</button>
+            <button class="filter-btn" onclick="openFoodMenu(event, 'dimsum')">Dimsum</button>
+            <button class="filter-btn" onclick="openFoodMenu(event, 'jasuke')">jasuke</button>
+
+          </div>
+          <ul class="food-menu-list">
+            <li class="food-menu-card category-mentai">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/mentai.png" width="300" height="300" loading="lazy"
+                  alt="dimsum mentai" class="w-100">
+
+                  <div class="badge">
+                    -23%
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Mentai
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">DIMSUM MENTAI</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Mulai:
+                  </p>
+
+                  <data class="price" value="29.00">Rp15.000,-</data>
+
+                  <del class="del">Rp18.000,-</del>
+
+                </div>
+              </div>
+            </li>
+            <li class="food-menu-card category-mentai">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/mentaigyoza.png" width="300" height="300" loading="lazy"
+                  alt="mentai gyoza" class="w-100">
+
+                  <div class="badge">
+                    -23%
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Mentai
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">GYOZA MENTAI</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Mulai:
+                  </p>
+
+                  <data class="price" value="29.00">Rp15.000,-</data>
+
+                  <del class="del">Rp18.000,-</del>
+
+                </div>
+              </div>
+            </li>
+            <li class="food-menu-card category-dimsum">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/udangkeju.png" width="300" height="300" loading="lazy"
+                  alt="udang keju" class="w-100">
+
+                  <div class="badge">
+                    -23%
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Dimsum
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">UDANG KEJU</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Price:
+                  </p>
+
+                  <data class="price" value="29.00">Rp10.000,-</data>
+
+                  <del class="del">Rp13.000,-</del>
+
+                </div>
+              </div>
+            </li>
+            <li class="food-menu-card category-dimsum">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/gyoza.png" width="300" height="300" loading="lazy"
+                  alt="gyoza" class="w-100">
+
+                  <div class="badge">
+                    -23%
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Dimsum
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">DIMSUM GYOZA</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Price:
+                  </p>
+
+                  <data class="price" value="29.00">Rp10.000,-</data>
+
+                  <del class="del">Rp13.000,-</del>
+
+                </div>
+              </div>
+            </li>
+            <li class="food-menu-card category-dimsum">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/siomay.png" width="300" height="300" loading="lazy"
+                  alt="Siomay" class="w-100">
+
+                  <div class="badge">
+                    -23%
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Dimsum
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">SIOMAY DIMSUM</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Price:
+                  </p>
+
+                  <data class="price" value="29.00">Rp10.000,-</data>
+
+                  <del class="del">Rp13.000,-</del>
+
+                </div>
+              </div>
+            </li>
+            <li class="food-menu-card category-dimsum">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/gyoza.png" width="300" height="300" loading="lazy"
+                  alt="Siomay" class="w-100">
+
+                  <div class="badge">
+                    -23%
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Dimsum
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">GYOZA MIX</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Price:
+                  </p>
+
+                  <data class="price" value="29.00">Rp10.000,-</data>
+
+                  <del class="del">Rp13.000,-</del>
+
+                </div>
+              </div>
+            </li>
+            <li class="food-menu-card category-jasuke">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/jasuke.png" width="300" height="300" loading="lazy"
+                  alt="Mozzarella" class="w-100">
+
+                  <div class="badge">
+                    -23%
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Jasuke
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">Jasuke Original</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Price:
+                  </p>
+
+                  <data class="price" value="29.00">Rp8.000,-</data>
+
+                  <del class="del">Rp10.000,-</del>
+
+                </div>
+              </div>
+            </li>
+            <li class="food-menu-card category-jasuke">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/jasuke.png" width="300" height="300" loading="lazy"
+                  alt="Mozzarella" class="w-100">
+
+                  <div class="badge">
+                    -23%
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Jasuke
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">Jasuke Premium</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Price:
+                  </p>
+
+                  <data class="price" value="29.00">Rp10.000,-</data>
+
+                  <del class="del">Rp13.000,-</del>
+
+                </div>
+              </div>
+            </li>
+            <li class="food-menu-card category-jasuke">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/jasuke.png" width="300" height="300" loading="lazy"
+                  alt="Mozzarella" class="w-100">
+
+                  <div class="badge">
+                    -23%
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Jasuke
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">Jasuke Mozzarella</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Price:
+                  </p>
+
+                  <data class="price" value="29.00">Rp13.000,-</data>
+
+                  <del class="del">Rp15.000,-</del>
+
+                </div>
+              </div>
+            </li>
+            <li class="food-menu-card category-soon" id="soon">
+              <div>
+                <div class="card-banner">
+                  <img src="./assets/images/soon.png" width="300" height="300" loading="lazy"
+                  alt="Burger King Whopper" class="w-100">
+
+                  <div class="badge">
+                    Soon
+                  </div>
+
+                  <button class="btn food-menu-btn"><a href="https://wa.me/6281358193025?text=Buat%20Menu%20baru%20kak" target="_blank">Pesan sekarang</a> </button>
+                </div>
+
+                <div class="wrapper">
+                  <p>
+                    Coming soon
+                  </p>
+
+                  <div class="rating-wrapper">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                </div>
+
+                <h3 class="h3 card-title">Coming soon</h3>
+
+                <div class="price-wrapper">
+
+                  <p class="price-text">
+                    Price:
+                  </p>
+
+                  <data class="price" value="29.00">Rp10.000,-</data>
+
+                  <del class="del">Rp13.000,-</del>
+
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+
+
+
+            <section class="section section-divider white cta" style="background-image: url('./assets/images/hero-bg.jpg')" id="map">
+        <div class="container">
+
+          <div class="cta-content">
+
+            <h2 class="h2 section-title">
+              HIUfoods.
+              <span class="span">Makanan Berkualitas!</span>
+            </h2>
+
+            <p class="section-text">
+              Hiufoods makanan by handmade dengan kualitas dan kebersihan di setiap produksi.
+            </p>
+
+            <button class="btn btn-hover"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+          </div>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2114.7440705630133!2d112.36743262262443!3d-6.998993539475289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77ef2449602423%3A0x14e09a9f2fb77898!2sHIUfoods.!5e0!3m2!1sid!2sid!4v1732894984185!5m2!1sid!2sid" width="500" height="400" style="border-radius: 10px 10px 10px 10px; left=10%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
+
+
+
+
+
+            <section class="section section-divider gray delivery">
+        <div class="container">
+
+          <div class="delivery-content">
+
+            <h2 class="h2 section-title">
+              Jastip Hiufoods.<span class="span">Arah Pulang</span>
+            </h2>
+
+            <p class="section-text">
+              Jastip Mulai Jam 21:00 Setelah Booth tutup, Cek ketersediaan sekarang.
+            </p>
+
+            <button class="btn btn-hover"><a href="https://wa.me/6281358193025?text=Hallo%20Kak%20mau%20pesan%20Dimsumnya%20bisa" target="_blank">Pesan sekarang</a> </button>
+          </div>
+
+          <figure class="delivery-banner">
+            <img src="./assets/images/delivery-banner-bg.png" width="700" height="602" loading="lazy" alt="clouds"
+            class="w-100">
+
+            <img src="./assets/images/delivery-boy.svg" width="1000" height="880" loading="lazy" alt="delivery boy"
+            class="w-100 delivery-img" data-delivery-boy>
+          </figure>
+
+        </div>
+      </section>
+
+       <section class="section section-divider white testi">
+        <div class="container">
+
+          <p class="section-subtitle">
+            Testimonials
+          </p>
+
+          <h2 class="h2 section-title">
+            <span class="span">REVIEWS</span> Pelanggan.
+          </h2>
+
+          <p class="section-text">
+            Makanan Enak Dan Bergizi by HIUfoods.
+          </p>
+
+          <ul class="testi-list has-scrollbar">
+
+            <li class="testi-item">
+              <div class="testi-card" witdh="350" height="300">
+
+                <div class="profile-wrapper">
+
+                  <figure class="avatar">
+                    <img src="./assets/images/avatar-1.jpg" width="80" height="80" loading="lazy" alt="Robert William">
+                  </figure>
+
+                  <div>
+                    <h3 class="h4 testi-name">Ayang e</h3>
+
+                    <p class="testi-title">
+                      Developernya
+                    </p>
+                  </div>
+
+                </div>
+
+                <blockquote class="testi-text">
+                  "Wes Paleng mantep,ndsng di jajal."
+                </blockquote>
+
+                <div class="rating-wrapper">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+
+              </div>
+            </li>
+
+
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+    </article>
+  </main>
+  <div class="container">
+    <div class="footer-brand">
+
+      <a href="" class="logo">HIUfoods<span class="span">.</span></a>
+
+      <p class="footer-text">
+        Kreasi tangan Hiu yang memanjakan lidahmu.
+      </p>
+
+      <ul class="social-list">
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-pinterest"></ion-icon>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+
+    <div class="footer-top" style="background-image: url('./assets/images/footer-illustration.png')">
+      <div class="container">
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">
+              Kontak Info
+            </p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">
+              +62 811 0000 0000
+            </p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">
+              hiufoods@gmail.com
+            </p>
+          </li>
+
+          <li>
+            <address class="footer-list-item">Jl. Raya sumberwudi depan smp.</address>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">
+              Jam Buka
+            </p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">
+              16:00-21:00
+            </p>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright-text">
+          &copy; 2023 <a href="#" class="copyright-link">HIUfoods.</a> All Rights Reserved.
+        </p>
+      </div>
+
+    </div>
+
+  </footer>
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+
+  <script>
+    // Function to open food menu tabs based on the filter
+    function openFoodMenu(evt, foodMenuName) {
+      var i,
+      foodMenuCard,
+      filterBtn;
+
+      // Get all food menu items
+      foodMenuCard = document.getElementsByClassName("food-menu-card");
+      for (i = 0; i < foodMenuCard.length; i++) {
+        // Initially hide all food menu cards
+        foodMenuCard[i].style.display = "none";
+      }
+
+      // Removing active class from all filter buttons
+      filterBtn = document.getElementsByClassName("filter-btn");
+      for (i = 0; i < filterBtn.length; i++) {
+        filterBtn[i].classList.remove("active");
+      }
+
+      // Show the relevant food menu items
+      if (foodMenuName === "all") {
+        // Show all items when "All" is selected
+        for (i = 0; i < foodMenuCard.length; i++) {
+          foodMenuCard[i].style.display = "block";
+        }
+      } else {
+        // Show only items that match the selected category
+        var selectedCategoryItems = document.getElementsByClassName("category-" + foodMenuName);
+        for (i = 0; i < selectedCategoryItems.length; i++) {
+          selectedCategoryItems[i].style.display = "block"; // Show only the matching category items
+        }
+      }
+
+      // Add active class to the clicked filter button
+      evt.currentTarget.classList.add("active");
+    }
+
+    // Set default tab to 'all' when the page loads
+    window.onload = function() {
+      document.getElementsByClassName("filter-btn")[0].click();
+    }
+  </script>
+
+
+
+  <!--
+                                                                                                                                                 - custom js link
+                                                                                                                                                                -->
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/wa.js"></script>
+
+  <!--
+                                                                                                                                                                - ionicon link
+                                                                                                                                                                -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+                  </html>
