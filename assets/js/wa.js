@@ -157,7 +157,7 @@ function updateCartDisplay() {
 
     cart.forEach((item, index) => {
         const cartItem = document.createElement("li");
-        cartItem.innerHTML = `${item.name} - Quantity: ${item.quantity} - harga: Rp  ${item.price.toLocaleString()}  ,-  
+        cartItem.innerHTML = `${item.name} - Jumlah: ${item.quantity} - harga: Rp  ${item.price.toLocaleString()}  ,-  
                               <button onclick="removeFromCart(${index})">Remove</button>`;
         cartList.appendChild(cartItem);
         totalPrice += item.price;
