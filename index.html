@@ -209,7 +209,7 @@
     <div class="container">
 
       <h1>
-        <a href="#" class="logo">HIUfoods<span class="span">.</span></a>
+        <a href="/" class="logo">HIUfoods<span class="span">.</span></a>
       </h1>
 
       <nav class="navbar" data-navbar>
@@ -254,8 +254,11 @@
       </div>
 
     </div>
+    
   </header>
-
+<div id="simple-alert" class="simple-alert">
+  <span id="alert-message"></span>
+</div>
   <main>
   	
     <article>
@@ -337,9 +340,9 @@
               </div>
               </div>
               <div class="quantity-control">
-<button id="jasuke-decrease" onclick="adjustQuantity('jasuke', 'decrease')">[-]</button>
+<button id="jasuke-decrease" onclick="adjustQuantity('jasuke', 'decrease')">➖</button>
 <input type="number" id="jasuke-quantity" value="1" min="1" type="hidden">
-              <button id="jasuke-increase" onclick="adjustQuantity('jasuke', 'increase')">[+]</button>
+              <button id="jasuke-increase" onclick="adjustQuantity('jasuke', 'increase')">➕</button>
            </div><div class="cart-action">
            <button id="add-to-cart-jasuke" class="filter-btn" onclick="addToCart('jasuke')">Masukan Keranjang</button>
             
@@ -370,9 +373,9 @@
                 </select>
                 </div>
               </div><div class="quantity-control">
-<button id="dimsum-decrease" onclick="adjustQuantity('dimsum', 'decrease')">-</button>
+<button id="dimsum-decrease" onclick="adjustQuantity('dimsum', 'decrease')">➖</button>
 <input type="number" id="dimsum-quantity" value="1" min="1" type="hidden">
-              <button id="dimsum-increase" onclick="adjustQuantity('dimsum', 'increase')">+</button>
+              <button id="dimsum-increase" onclick="adjustQuantity('dimsum', 'increase')">➕</button>
               </div>
               <div class="cart-action">
                             <button id="add-to-cart-dimsum" class="filter-btn" onclick="addToCart('dimsum')">Masukan Keranjang</button>
@@ -409,9 +412,9 @@
               </div>
 <div class="quantity-control">
             
-              <button id="mentai-decrease" onclick="adjustQuantity('mentai', 'decrease')">-</button>
+              <button id="mentai-decrease" onclick="adjustQuantity('mentai', 'decrease')">➖</button>
               <input type="number" id="mentai-quantity" value="1" min="1" type="hidden">
-                            <button id="mentai-increase" onclick="adjustQuantity('mentai', 'increase')">+</button>
+                            <button id="mentai-increase" onclick="adjustQuantity('mentai', 'increase')">➕</button>
             </div>
 <div class="cart-action">
 <button id="add-to-cart-mentai" class="filter-btn" onclick="addToCart('mentai')">Masukan Keranjang</button>
@@ -427,15 +430,17 @@
   </div>
 </section>
 
+      
+
       <section class="section section-divider gray about" id="about">
         <div class="container">
 
           <div class="about-banner">
             <img src="./assets/images/udangkeju.png" width="509" height="459" loading="lazy" alt="Burger with Drinks"
-            class="w-100 about-img">
+              class="w-100 about-img">
 
             <img src="./assets/images/sale-shape-red.png" width="216" height="226" alt="get up to 50% off now"
-            class="abs-img scale-up-anim">
+              class="abs-img scale-up-anim">
           </div>
 
           <div class="about-content">
@@ -477,7 +482,7 @@
 
             </ul>
 
-            <button class="btn btn-hover"><a href="#home">Pesan sekarang</a> </button>
+            <button class="btn btn-hover"><a href="#jasuke-product">Pesan sekarang</a> </button>
 
           </div>
 
@@ -486,7 +491,12 @@
 
 
 
-                    
+
+
+      <!-- 
+        - #FOOD MENU
+      -->
+
       <section class="section food-menu" id="food-menu">
         <div class="container">
           <p class="section-subtitle">Makanan Populer</p>
@@ -510,7 +520,8 @@
 
                   <div class="badge">-23%</div>
 
-                   <button class="btn food-menu-btn"><a href="#home">Pesan sekarang</a> </button>                   </div>
+                  <button class="btn food-menu-btn"><a href="#jasuke-product">Pesan sekarang</a> </button>
+                </div>
 
                 <div class="wrapper">
                   <p>Mentai</p>
@@ -545,7 +556,8 @@
 
                   <div class="badge">-23%</div>
 
-                   <button class="btn food-menu-btn"><a href="#home">Pesan sekarang</a> </button>                   </div>
+                  <button class="btn food-menu-btn"><a href="#jasuke-product">Pesan sekarang</a> </button>
+                </div>
 
                 <div class="wrapper">
                   <p>Mentai</p>
@@ -580,7 +592,8 @@
 
                   <div class="badge">-23%</div>
 
-                   <button class="btn food-menu-btn"><a href="#home">Pesan sekarang</a> </button>                   </div>
+                  <button class="btn food-menu-btn"><a href="#jasuke-product">Pesan sekarang</a> </button>
+                </div>
 
                 <div class="wrapper">
                   <p>Dimsum</p>
@@ -615,7 +628,8 @@
 
                   <div class="badge">-23%</div>
 
-                   <button class="btn food-menu-btn"><a href="#home">Pesan sekarang</a> </button>                   </div>
+                  <button class="btn food-menu-btn"><a href="#jasuke-product">Pesan sekarang</a> </button>
+                </div>
 
                 <div class="wrapper">
                   <p>Dimsum</p>
@@ -650,7 +664,8 @@
 
                   <div class="badge">-23%</div>
 
-                   <button class="btn food-menu-btn"><a href="#home">Pesan sekarang</a> </button>                   </div>
+                  <button class="btn food-menu-btn"><a href="#jasuke-product">Pesan sekarang</a> </button>
+                </div>
 
                 <div class="wrapper">
                   <p>Dimsum</p>
@@ -685,7 +700,8 @@
 
                   <div class="badge">-23%</div>
 
-                   <button class="btn food-menu-btn"><a href="#home">Pesan sekarang</a> </button>                   </div>
+                  <button class="btn food-menu-btn"><a href="#jasuke-product">Pesan sekarang</a> </button>
+                </div>
 
                 <div class="wrapper">
                   <p>Dimsum</p>
@@ -720,7 +736,8 @@
 
                   <div class="badge">-23%</div>
 
-                   <button class="btn food-menu-btn"><a href="#home">Pesan sekarang</a> </button>                   </div>
+                  <button class="btn food-menu-btn"><a href="#jasuke-product">Pesan sekarang</a> </button>
+                </div>
 
                 <div class="wrapper">
                   <p>Jasuke</p>
@@ -755,7 +772,8 @@
 
                   <div class="badge">-23%</div>
 
-                   <button class="btn food-menu-btn"><a href="#home">Pesan sekarang</a> </button>                   </div>
+                  <button class="btn food-menu-btn"><a href="#jasuke-product">Pesan sekarang</a> </button>
+                </div>
 
                 <div class="wrapper">
                   <p>Jasuke</p>
@@ -790,7 +808,8 @@
 
                   <div class="badge">-23%</div>
 
-                   <button class="btn food-menu-btn"><a href="#home">Pesan sekarang</a> </button>                   </div>
+                  <button class="btn food-menu-btn"><a href="#jasuke-product">Pesan sekarang</a> </button>
+                </div>
 
                 <div class="wrapper">
                   <p>Jasuke</p>
@@ -858,21 +877,29 @@
       </section>
 
 
-            <section class="section section-divider white cta" style="background-image: url('./assets/images/hero-bg.jpg')" id="map">
+
+
+      <!-- 
+        - #CTA
+      -->
+
+      <section class="section section-divider white cta" style="background-image: url('./assets/images/hero-bg.jpg')" id="map">
         <div class="container">
 
           <div class="cta-content">
 
             <h2 class="h2 section-title">
-              HIUfoods<span class="span">.</span>
+              HIUfoods. 
+              <span class="span">Makanan Berkualitas!</span>
             </h2>
 
             <p class="section-text">
-              Datang langsung Dan dapatkan sajian yang fresh setiap hari🥰.
+              Hiufoods makanan by handmade dengan kualitas dan kebersihan di setiap produksi.
             </p>
 
-            <button class="btn food-menu-btn"><a href="https://maps.app.goo.gl/V51jSQ7GwWoiNrgj7" target="_blank>Lokasi Kedai</a> </button> </div><br>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2114.7440705630133!2d112.36743262262443!3d-6.998993539475289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77ef2449602423%3A0x14e09a9f2fb77898!2sHIUfoods.!5e0!3m2!1sid!2sid!4v1732894984185!5m2!1sid!2sid" width="500" height="400" style="border-radius: 10px 10px 10px 10px; left=10%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <button class="btn btn-hover"><a href="#jasuke-product">Pesan sekarang</a> </button>
+          </div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2114.7440705630133!2d112.36743262262443!3d-6.998993539475289!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e77ef2449602423%3A0x14e09a9f2fb77898!2sHIUfoods.!5e0!3m2!1sid!2sid!4v1732894984185!5m2!1sid!2sid" width="500" height="400"  style="border-radius: 10px 10px 10px 10px; left=10%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </section>
 
@@ -880,7 +907,11 @@
 
 
 
-            <section class="section section-divider gray delivery">
+      <!-- 
+        - #DELIVERY
+      -->
+
+      <section class="section section-divider gray delivery">
         <div class="container">
 
           <div class="delivery-content">
@@ -893,26 +924,32 @@
               Jastip Mulai Jam 21:00 Setelah Booth tutup, Cek ketersediaan sekarang.
             </p>
 
-            <button class="btn btn-hover"><a href="#">Pesan sekarang</a> </button>
+            <button class="btn btn-hover"><a href="#jasuke-product">Pesan sekarang</a> </button>
           </div>
 
           <figure class="delivery-banner">
             <img src="./assets/images/delivery-banner-bg.png" width="700" height="602" loading="lazy" alt="clouds"
-            class="w-100">
+              class="w-100">
 
             <img src="./assets/images/delivery-boy.svg" width="1000" height="880" loading="lazy" alt="delivery boy"
-            class="w-100 delivery-img" data-delivery-boy>
+              class="w-100 delivery-img" data-delivery-boy>
           </figure>
 
         </div>
       </section>
 
-       <section class="section section-divider white testi">
+
+
+
+
+      <!-- 
+        - #TESTIMONIALS
+      -->
+
+      <section class="section section-divider white testi">
         <div class="container">
 
-          <p class="section-subtitle">
-            Testimonials
-          </p>
+          <p class="section-subtitle">Testimonials</p>
 
           <h2 class="h2 section-title">
             <span class="span">REVIEWS</span> Pelanggan.
@@ -936,9 +973,7 @@
                   <div>
                     <h3 class="h4 testi-name">Ayang e</h3>
 
-                    <p class="testi-title">
-                      Developernya
-                    </p>
+                    <p class="testi-title">Developernya</p>
                   </div>
 
                 </div>
@@ -958,21 +993,12 @@
               </div>
             </li>
 
-
+            
 
           </ul>
 
         </div>
       </section>
-
-
-
-
-
-
-
-
-
 
 
     </article>
