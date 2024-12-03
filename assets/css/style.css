@@ -1715,34 +1715,86 @@ textarea.input-field {
 
   .footer-top .container { grid-template-columns: 1.4fr 1fr 1fr 1.6fr; }
 
+}/* Reset Styles for Select */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+    max-width: 300px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
-/** Dropdown **/
-.dropdown {
-  color: #888;
+
+/* Focus State for Select */
+select:focus {
+    border-color: #ff6f61;
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.7);
+    outline: none;
 }
-.dropdown select{
-  min-width: max-content;
-  --bg-color: var(--cinnabar);
-  width: 60%;
-  --height: 40px;
-  --padding-inline: 20px;
-  transition: var(--transition-2);
-   cursor: pointer;
-  position: relative;
-  font-size: 15px;
-  line-height: 40px;
-  text-align: center;
-background-color: #fff;
-  width: 150px;
-  height: 40px;
+
+/* Dropdown Arrow Styling */
+select::after {
+    content: '▼'; /* Unicode character for the down arrow */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #333;
+    font-size: 14px;
 }
-.dropdown select option {
-  color: #fff;
-  line-height: 30px;
-  cursor: pointer;
+
+/* Container for custom select */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
 }
-.price {
-  display: inline;
-  font-size: 14px; 
-  color: #fff;  
+
+/* Add some padding and background for custom select */
+.select-wrapper:after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+/* When select is hovered or focused */
+select:hover {
+    border-color: #ff6f61;
+}
+
+select option {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Custom Style for the selected option */
+option:checked {
+    background-color: #ff6f61;
+    color: white;
+}
+
+/* For better visual appeal */
+select, .select-wrapper {
+    display: block;
+    margin: 10px 0;
+}
+
+/* Responsive Styling for Smaller Screens */
+@media (max-width: 600px) {
+    select {
+        font-size: 14px;
+    }
 }
