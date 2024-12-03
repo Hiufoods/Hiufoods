@@ -9,6 +9,7 @@ function updatePrice(productType) {
     }
 
     // Price Calculation Logic for Jasuke
+    
     if (productType === 'jasuke') {
         const selectedProduct = document.getElementById("jasuke-product").value;
         switch (selectedProduct) {
@@ -94,7 +95,15 @@ function addToCart(productType) {
         alert("Please make sure all product details are correctly selected.");
         return;
     }
-
+let category = '';
+    if (productType === 'jasuke') {
+        category = 'Jasuke';
+    } else if (productType === 'dimsum') {
+        category = 'Dimsum';
+    } else if (productType === 'mentai') {
+        category = 'Mentai';
+    }
+    
     // Check if the product is already in the cart
     const existingItem = cart.find(item => item.name === productName);
 
@@ -107,7 +116,8 @@ function addToCart(productType) {
             name: productName,
             quantity: quantity,
             unitPrice: price / quantity, // Unit price calculation
-            price: price // Total price (quantity * unit price)
+            price: price, // Total price (quantity * unit price)
+            category: category // Kategori produk
         };
         cart.push(cartItem);
     }
@@ -124,13 +134,13 @@ function updateCartDisplay() {
 
     cart.forEach((item, index) => {
         const cartItem = document.createElement("li");
-        cartItem.innerHTML = `${item.name} - Quantity: ${item.quantity} - Price: Rp ${item.price} IDR 
+        cartItem.innerHTML = `${item.name} - Quantity: ${item.quantity} - harga: Rp  ${item.price.toLocaleString()}  ,-  
                               <button onclick="removeFromCart(${index})">Remove</button>`;
         cartList.appendChild(cartItem);
         totalPrice += item.price;
     });
 
-    document.getElementById("total-price").innerText = `Total Price: Rp ${totalPrice} IDR`;
+    document.getElementById("total-price").innerText = `Total: Rp ${totalPrice.toLocaleString()} ,-`;
 }
 
 function removeFromCart(index) {
@@ -162,21 +172,41 @@ function removeCartCookie() {
 }
 
 function sendWhatsAppMessage() {
-    // Format cart details with line breaks and bullet points
-    let cartDetails = cart.map(item => {
-        return `• ${item.name} = ${item.quantity}\n   harga: Rp. ${item.price} IDR`;
-    }).join('\n');  // Join cart items into a formatted string
+    // Urutkan keranjang berdasarkan kategori
+    cart.sort((a, b) => {
+        const categories = ['Jasuke', 'Dimsum', 'Mentai'];
+        return categories.indexOf(a.category) - categories.indexOf(b.category);
+    });
 
-    // Calculate total price
+    // Group items by category
+    let categories = ['Jasuke', 'Dimsum', 'Mentai'];
+    let cartDetails = '';
+
+    categories.forEach(category => {
+        // Filter items by category
+        let categoryItems = cart.filter(item => item.category === category);
+        if (categoryItems.length > 0) {
+            // Add category title
+            cartDetails += `\n*${category}*\n`;
+            // Add items for this category
+            categoryItems.forEach(item => {
+                cartDetails += `• ${item.name} = ${item.quantity}\n   Harga: Rp. ${item.price.toLocaleString()} IDR\n`;
+            });
+            // Add a separator for better readability
+            cartDetails += `\n----------------------------\n`;
+        }
+    });
+
+    // Hitung total harga
     let totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
-    // Build the message content with clear headings and separators
-    let message = `*Hai Kak*. Mau pesan Jajannya apakah pesanan saya tersedia?\n\n${cartDetails}\n\n*Total:*
-    Rp ${totalPrice} IDR\n\n*HIUfoods!*`;
+    // Format pesan
+    let message = `*Hai Kak*, mau pesan jajannya ya! Apakah pesanan saya tersedia?\n\n${cartDetails}\n*Total:*\nRp. ${totalPrice.toLocaleString()},-\n\n*HIUfoods!*`;
 
+    // URL WhatsApp untuk mengirim pesan
     let url = `https://wa.me/6281358193025?text=${encodeURIComponent(message)}`;
 
-    // Open WhatsApp with the pre-filled message
+    // Membuka WhatsApp dengan pesan yang sudah terisi
     window.open(url, '_blank');
 
     // Remove the cart cookie after sending the order
