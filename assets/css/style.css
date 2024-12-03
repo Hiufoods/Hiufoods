@@ -1798,3 +1798,34 @@ select, .select-wrapper {
         font-size: 14px;
     }
 }
+/* Style untuk simple alert */
+.simple-alert {
+  position: fixed;
+  top: 85px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none; /* Alert disembunyikan secara default */
+  font-size: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  max-width: 250px;
+  width: auto;
+}
+
+/* Untuk jenis alert kesalahan */
+.simple-alert.error {
+  background-color: #f44336;
+}
+
+/* Untuk jenis alert peringatan */
+.simple-alert.warning {
+  background-color: #ff9800;
+}
+
+/* Untuk jenis alert informasi */
+.simple-alert.info {
+  background-color: #2196F3;
+}
